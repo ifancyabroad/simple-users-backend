@@ -7,18 +7,19 @@ const errorHandler = require('../util/error');
 
 exports.signup = async (req, res, next) => {
 
-  // Check for validation errors
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    errorHandler('Validation failed.', 422, errors.array());
-  }
-
-  const email = req.body.email;
-  const name = req.body.name;
-  const password = req.body.password;
-
-  // Save user data and return user ID
   try {
+
+    // Check for validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      errorHandler('Validation failed.', 422, errors.array());
+    }
+
+    const email = req.body.email;
+    const name = req.body.name;
+    const password = req.body.password;
+
+    // Save user data and return user ID
     const hashedPassword = await bcrypt.hash(password, 12)
     const user = new User({
       email: email,
@@ -57,7 +58,7 @@ exports.login = async (req, res, next) => {
     const token = jwt.sign({
       email: loadedUser.email,
       userId: loadedUser._id.toString()
-    }, 'secret', { expiresIn: '1h' });
+    }, JWT_SECRET, { expiresIn: '1h' });
     res.status(200).json({ message: 'Login successful!', token: token, userId: loadedUser._id.toString() });
   } catch (err) {
     next(err);

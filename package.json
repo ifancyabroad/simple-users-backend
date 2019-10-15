@@ -2,10 +2,10 @@
   "name": "pets-api",
   "version": "1.0.0",
   "description": "Rest API for pet simulation game",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production MONGO_USER=edgar MONGO_PASSWORD=A09c4ixyd44IaE0q MONGO_DEFAULT_DATABASE=messages node app.js",
+    "start": "NODE_ENV=production MONGO_USER=edgar MONGO_PASSWORD=A09c4ixyd44IaE0q MONGO_DEFAULT_DATABASE=testing JWT_SECRET=secret node app.js",
     "start-server": "node app.js",
     "start:dev": "nodemon app.js"
   },
