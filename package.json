@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production MONGO_USER=edgar MONGO_PASSWORD=A09c4ixyd44IaE0q MONGO_DEFAULT_DATABASE=testing JWT_SECRET=secret node app.js",
-    "start-server": "node app.js",
+    "start": "node app.js",
     "start:dev": "nodemon app.js"
   },
   "author": "Edgar Nightingale",
@@ -21,6 +20,7 @@
     "mongoose": "^5.7.5"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^1.19.3"
   }
 }
