@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_USER": "edgar",
+        "MONGO_PASSWORD": "A09c4ixyd44IaE0q",
+        "MONGO_DEFAULT_DATABASE": "testing",
+        "JWT_SECRET": "secret"
+    }
+  }
